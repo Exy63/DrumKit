@@ -1,8 +1,8 @@
-// Вводим переменную для рассчета по порядковым номерам в Array
+// Расчета по порядковым номерам в Array
 
 var numberOfDrumButtons = document.querySelectorAll('.drum').length; //7
 
-// Задаем функцию извлечения звука
+// Извлечения звука
 function makeSound(key) {
   switch (key) {
 
@@ -46,7 +46,7 @@ function makeSound(key) {
   }
 };
 
-// Задаем функцию анимации
+// Анимация
 
 function buttonAnimation(currentKey) {
 
@@ -60,7 +60,7 @@ function buttonAnimation(currentKey) {
 
 }
 
-// Делаем возможным излечение звука мышью
+// Излечение звука мышью
 for (var i = 0; i < numberOfDrumButtons; i++) {
   document.querySelectorAll('.drum')[i].addEventListener('click', function(buttonInnerHTML) {
 
@@ -74,15 +74,28 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
   })
 };
 
-//Делаем возможным извлечение звука клавиатурой
+//Извлечение звука клавиатурой
 document.addEventListener('keydown', function(event) {
 
 // Создаем OUTPUT независимый от раскладки
-  var knopka = event.code;
-  knopka = knopka.split('Key').join('').toLowerCase();
+  var keyboardButton = event.code;
+  keyboardButton = keyboardButton.split('Key').join('').toLowerCase();
 // Output  создан
 
-  makeSound(knopka);
+  makeSound(keyboardButton);
 
-  buttonAnimation(knopka);
+  buttonAnimation(keyboardButton);
 });
+
+// Переключение режимов 
+function changeMode() {
+  const body = document.body;
+  const h1 = document.querySelector('h1');
+  const footer = document.querySelector('footer');
+  const toggler = (document.getElementsByClassName('toggler'))[0]
+
+  body.classList.toggle("light-mode");
+  h1.classList.toggle("light-mode");
+  footer.classList.toggle("light-mode");
+  toggler.classList.toggle("light-mode-toggler");
+}

@@ -92,10 +92,8 @@ function changeMode() {
   const body = document.body;
   const h1 = document.querySelector('h1');
   const footer = document.querySelector('footer');
-  const toggler = (document.getElementsByClassName('toggler'))[0]
 
   body.classList.toggle("light-mode");
   h1.classList.toggle("light-mode");
   footer.classList.toggle("light-mode");
-  toggler.classList.toggle("light-mode-toggler");
 }
